@@ -1,13 +1,24 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class CullingNumbers {
-    int size;
-    int[] cullNum;
+    public static void main(String args[]){
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Enter integers: ");
+        String[] splitArr = reader.nextLine().split(" ");
 
-    public int[] getCullNum(int[] input){
-        cullNum = new int[input.length];
+        int[] arrNums = new int[splitArr.length];
+        for (int i=0; i<splitArr.length; i++){
+            arrNums[i] = Integer.parseInt(splitArr[i]);
+        }
+
+        getCullNum(arrNums);
+    }
+
+    public static void getCullNum(int[] input){
+        int[] cullNum = new int[input.length];
         cullNum[0] = input[0];
-        size = 1;
+        int size = 1;
         boolean unique = true;
         for (int i=1; i<input.length; i++){
             for (int x=0; x<size; x++){
@@ -21,15 +32,11 @@ public class CullingNumbers {
                 size++;
             }
         }
-        return cullNum;
-    }
 
-    public String toString(){
         String string = "";
         for (int i=0; i<size; i++){
             string += cullNum[i] + " ";
         }
-        return string;
+        System.out.println(string);
     }
-
 }
