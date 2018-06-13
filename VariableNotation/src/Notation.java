@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Tester {
+public class Notation {
     public static void main(String args[]){
         Scanner reader = new Scanner(System.in);
 
